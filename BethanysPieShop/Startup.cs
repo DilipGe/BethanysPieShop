@@ -23,7 +23,6 @@ namespace BethanysPieShop
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
             }
 
             app.Run(async (context) =>

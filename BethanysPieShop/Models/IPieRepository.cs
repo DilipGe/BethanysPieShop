@@ -8,8 +8,8 @@ namespace BethanysPieShop.Models
     public interface IPieRepository
     {
         IEnumerable<Pie> Pies { get; }
-        //IEnumerable<Pie> PiesOfWeek { get; }
+        IEnumerable<Pie> PiesOfTheWeek { get; }
 
-        //Pie GetPieByID(int pieId);
+        Pie GetPieById(int pieId);
     }
 }

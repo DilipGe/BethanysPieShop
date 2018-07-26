@@ -27,6 +27,10 @@ namespace BethanysPieShop
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IPieRepository, PieRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();//Allows to work with the context
+            services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp)); //Will create an object that is associated with an object
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddMvc();
         }
 
@@ -36,6 +40,7 @@ namespace BethanysPieShop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
         }
     }

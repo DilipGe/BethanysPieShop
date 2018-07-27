@@ -29,8 +29,11 @@ namespace BethanysPieShop
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();//Allows to work with the context
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp)); //Will create an object that is associated with an object
+            services.AddTransient<IOrderRepository, OrderRepository>();
+
             services.AddMemoryCache();
             services.AddSession();
+
             services.AddMvc();
         }
 

@@ -41,7 +41,14 @@ namespace BethanysPieShop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name:"cateoryFilter", template:"Pie/{action}/{category?}", 
+                    defaults:new { Controller = "Pie", action = "List" });
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+ 
+            });
         }
     }
 }

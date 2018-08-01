@@ -1,2 +1,2 @@
 # BethanysPieShop
-Dot Net Core MVC2 Project
+Dot Net Core2 MVC Project
